@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tracer Study SMK Mitra Industri</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body{
+    background:#f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    color:#333;
+    line-height:1.8;
+  }
+    
+    @keyframes pageLoad{
+     from{opacity:0}
+     to{opacity:1}
+    }
+
+
+    /* TOP BAR */
+    .topbar{
+      background:#0b2c6f;
+      color:#fff;
+      padding:10px 30px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:bold;
+    }
+
+    .brand img{
+      width:45px;
+      height:45px;
+    }
+
+    .menu a{
+      color:#fff;
+      text-decoration:none;
+      margin:0 12px;
+      font-size:14px;
+    }
+
+    .menu a:hover{
+      text-decoration:underline;
+    }
+
+    /* HERO IMAGE */
+    .hero{
+      position:relative;
+      background:url('aseet/image/HERO MM2100.jpeg') center/cover no-repeat;
+      height:300px;
+    }
+
+    .hero .overlay{
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.5);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+    }
+
+    .hero h1{
+      font-size:36px;
+      letter-spacing:2px;
+    }
+
+    .hero span{
+      font-size:18px;
+    }
+
+    .hero-btn{
+     margin-top:20px;
+     background:#ffcc00;
+     color:#000;
+      padding:12px 28px;
+      border-radius:30px;
+      font-weight:bold;
+      text-decoration:none;
+      font-size:15px;
+      transition:0.3s ease;
+      animation: pulse 1.4s infinite;
+    }
+
+    @keyframes pulse{
+     0%{ box-shadow:0 0 0 0 rgba(255,204,0,0.8); }
+     70%{ box-shadow:0 0 0 15px rgba(255,204,0,0); }
+     100%{ box-shadow:0 0 0 0 rgba(255,204,0,0); }
+    }
+
+    .hero-btn:hover{
+     transform: scale(1.07);
+     background:#ffc107;
+    }
+
+
+    .hero-btn:hover{
+     background:#ffc107;
+     transform:scale(1.05);
+    }
+
+    /* CONTAINER */
+    .container{
+      max-width:1100px;
+      margin:40px auto;
+      background:#ffffff;
+      padding:35px 40px;
+      border-radius:10px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .container h2{
+      color:#0b2c6f;
+      margin-bottom:18px;
+      font-size:26px;
+    }
+
+    .container p{
+      margin-bottom:16px;
+      font-size:15px;
+      text-align: justify;
+    }
+
+    .container ul{
+      margin:15px 0 20px 20px;
+    }
+
+    .container ul li{
+      margin-bottom:10px;
+      font-size:15px;
+    }
+
+    .highlight{
+      font-weight:bold;
+      color:#0b2c6f;
+    }
+
+    .closing{
+      margin-top:25px;
+      font-weight:bold;
+      text-align:center;
+      font-size:16px;
+      color:#000;
+    }
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .container{
+        padding:25px 20px;
+      }
+
+      .container h2{
+        font-size:22px;
+      }
+    }
+
+    /* RESULT TITLE */
+    .result-title{
+      text-align:center;
+      font-weight:bold;
+      margin:30px 0 15px;
+      font-size:18px;
+      color:#0b2c6f;
+    }
+
+    /* CARDS */
+    .cards{
+      max-width: 1200px;      /* batas lebar */
+      margin: 40px auto;      /* center + space kiri kanan */
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;              /* jarak antar card */
+      padding: 0 20px;        /* space kanan kiri */
+    }
+
+    .card{
+      max-width: 360px;
+      margin: auto;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .card{
+      border:2px solid #0a0808;
+      border-radius:8px;
+      overflow:hidden;
+      background:#fafafa;
+    }
+
+    .card img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+    }
+
+    .card-body{
+      padding:12px;
+    }
+
+    .card-body h3{
+      font-size:14px;
+      margin-bottom:8px;
+      color:#0b2c6f;
+      text-align:center;
+    }
+
+    @media(max-width: 900px){
+      .cards{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width: 600px){
+      .cards{
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    /* BUTTON LIHAT DETAIL - MANJANG & TENGAH */
+    .btn-detail{
+     display:block;
+     width:100%;
+     max-width:280px;
+     margin:15px auto 5px;
+     padding:12px 0;
+     background: linear-gradient(135deg,#0b2c6f,#1f5eff);
+     color:#fff;
+     text-align:center;
+     border-radius:50px;
+     font-weight:600;
+     letter-spacing:1px;
+     text-decoration:none;
+     transition:0.4s ease;
+    }
+
+    .btn-detail:hover{
+     transform: scale(1.05);
+     box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    }
+
+
+    footer{
+      background:#0b2c6f;
+      color:#fff;
+      text-align:center;
+      padding:15px;
+      margin-top:40px;
+      font-size:14px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .cards{grid-template-columns:1fr 1fr;}
+      .hero h1{font-size:26px;}
+    }
+
+    @media(max-width:500px){
+      .cards{grid-template-columns:1fr;}
+      .menu{text-align:center;width:100%;margin-top:10px;}
+    }
+
+    /* BURGER ANIMATED */
+    /* .burger{
+     display:none;
+     width:30px;
+     height:22px;
+     position:relative;
+     cursor:pointer;
+    }
+
+    .burger span{
+     position:absolute;
+     height:3px;
+     width:100%;
+     background:#fff;
+     border-radius:5px;
+     transition:0.4s ease;
+    } */
+
+    .burger span:nth-child(1){ top:0; }
+    .burger span:nth-child(2){ top:9px; }
+    .burger span:nth-child(3){ top:18px; }
+
+    /* Saat aktif jadi X */
+    .burger.active span:nth-child(1){
+     transform: rotate(45deg);
+     top:9px;
+    }
+    .burger.active span:nth-child(2){
+     opacity:0;
+    }
+    .burger.active span:nth-child(3){
+     transform: rotate(-45deg);
+     top:9px;
+    }
+
+    /* MODE HP */
+    /* @media(max-width:768px){
+     .burger{
+      display:block;
+     }
+
+     .menu{
+      display:none;
+      width:100%;
+      flex-direction:column;
+      background:#0b2c6f;
+      margin-top:10px;
+     animation: slideDown 0.4s ease;
+    } */
+
+    .menu.active{
+      display:flex;
+    }
+
+    .menu a{
+     padding:12px;
+     border-top:1px solid rgba(255,255,255,0.2);
+    }
+    
+
+    /* Animasi dropdown */
+    @keyframes slideDown{
+     from{
+        opacity:0;
+        transform:translateY(-10px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    /* ===== BURGER MODERN ===== */
+    .burger{
+     display:none;
+     width:30px;
+     height:22px;
+     position:relative;
+     cursor:pointer;
+     z-index:999;
+    }
+
+    .burger span{
+     position:absolute;
+     width:100%;
+     height:3px;
+     background:#fff;
+     border-radius:10px;
+     transition:0.4s cubic-bezier(.68,-0.55,.27,1.55);
+    }
+
+    .burger span:nth-child(1){ top:0; }
+    .burger span:nth-child(2){ top:9px; }
+    .burger span:nth-child(3){ top:18px; }
+
+    .burger.active span:nth-child(1){
+     transform:rotate(45deg);
+     top:9px;
+    }
+    .burger.active span:nth-child(2){
+     opacity:0;
+     transform:translateX(-20px);
+    }
+    .burger.active span:nth-child(3){
+     transform:rotate(-45deg);
+     top:9px;
+    }
+
+    /* MENU MOBILE STYLE */
+    @media(max-width:768px){
+      .burger{
+       display:block;
+      }
+
+      .menu{
+       position:absolute;
+       top:60px;
+       left:0;
+       width:100%;
+       background:#4f6fafd7;
+       display:none;
+       flex-direction:column;
+       text-align:left;
+       z-index:998;
+       animation: slideDown 0.6s ease-in-out;
+      }
+
+      .menu a{
+       padding:15px;
+       display:block;
+       font-size:15px;
+       border-bottom:1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .menu.active{
+       display:flex;
+      }
+    }
+
+    /* Animasi drop */
+    @keyframes dropMenu{
+      from{
+       opacity:0;
+       transform:translateY(-20px);
+      }
+      to{
+       opacity:1;
+       transform:translateY(0);
+      }
+    }
+
+    .menu a{
+     border: none !important;
+    }
+
+    .menu a::before,
+    .menu a::after{
+     display: none !important;
+    }
+
+    .hero h1{
+     font-size:36px;
+     letter-spacing:2px;
+     animation: slideDown 1s ease forwards;
+    }
+
+    .hero span{
+     font-size:18px;
+     margin-top:5px;
+     animation: fadeIn 1.5s ease forwards;
+    }
+
+    @keyframes slideDown{
+     from{ opacity:0; transform:translateY(-40px); }
+     to{ opacity:1; transform:translateY(0); }
+    }
+
+    @keyframes fadeIn{
+     from{ opacity:0; }
+     to{ opacity:1; }
+    }
+
+    .card{
+      border:2px solid #0a0808;
+      border-radius:8px;
+      overflow:hidden;
+      background:#fafafa;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: cardUp 1s ease forwards;
+    }
+
+    .card:nth-child(1){ animation-delay:0.2s; }
+    .card:nth-child(2){ animation-delay:0.4s; }
+    .card:nth-child(3){ animation-delay:0.6s; }
+
+    @keyframes cardUp{
+     to{
+       transform:translateY(0);
+       opacity:1;
+      }
+    }
+
+    .card:hover{
+     transform: translateY(-10px) scale(1.02);
+     transition: 0.4s ease;
+     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .header-animasi{
+      display:flex;
+      align-items:center;
+      gap:15px;
+      overflow:hidden;
+      padding:5px 10px;
+    }
+
+    /* LOGO MENGGELINDING */
+    .logo-roll{
+     width:55px;
+     animation: rollIn 1.8s ease-out forwards;
+    }
+
+    @keyframes rollIn{
+     0%{
+       transform: translateX(-300px) rotate(-720deg);
+       opacity: 0;
+      }
+      80%{
+       transform: translateX(0) rotate(30deg);
+       opacity: 1;
+      }
+      100%{
+       transform: translateX(0) rotate(0deg);
+      }
+    }
+
+    /* JUDUL MUNCUL SETELAH LOGO BERHENTI */
+    .judul-muncul{
+      font-size:18px;
+      font-weight:bold;
+      color:#f0f2f5;
+      opacity:0;
+      transform: translateX(-20px);
+      animation: munculTeks 1s ease forwards;
+      animation-delay: 1.8s;
+    }
+
+    @keyframes munculTeks{
+      from{
+       opacity:0;
+       transform: translateX(-20px);
+      }
+      to{
+       opacity:1;
+       transform: translateX(0);
+      }
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      .logo-roll{
+       width:40px;
+      }
+
+      .judul-muncul{
+       font-size:16px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<!--Logo & Nama-->
+<div class="topbar">
+  <div class="header-animasi">
+   <img src="aseet/image/LogoMitra.png" class="logo-roll">
+    <h3 class="judul-muncul">SMK Mitra Industri MM2100</h3>
+  </div>
+
+  <!--Burger-->
+  <div class="burger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+   <span></span>
+  </div>
+  <!--Menu Burger-->
+  <div class="menu">
+    <a href="https://smkind-mm2100.sch.id/">Beranda</a>
+    <a href="https://smkind-mm2100.sch.id/profile/">Profil</a>
+    <a href="https://smkind-mm2100.sch.id/fasilitas/">Fasilitas</a>
+    <a href="https://sites.google.com/view/perpustakaandigitalsmkmitraind/">Perpustakaan</a>
+    <a href="https://osismitraindustri.simdif.com/">OSIS</a>
+  </div>
+</div>
+<!--Halaman untuk pindah ke Form-->
+<section class="hero">
+  <div class="overlay">
+    <h1>TRACER STUDY</h1>
+    <span>SMK MITRA INDUSTRI MM2100</span>
+    <!--BUTTON TENGAH UNTUK KE LINK FORM TS-->
+    <a href="prototipe 3.html" class="hero-btn">LOGIN TRACER STUDY</a> 
+  </div>
+</section>
+<!--Tentang Tracer Study-->
+  
+  <div class="container">
+    <h2>Tentang Tracer Study</h2>
+
+    <p>
+      SMK Mitra Industri MM2100 terus berkomitmen untuk meningkatkan kualitas pendidikan dan relevansi lulusannya dengan dunia kerja serta pendidikan tinggi melalui program <span class="highlight">Tracer Study</span>. Program ini bertujuan untuk melacak dan menganalisis jejak alumni setelah mereka lulus dari sekolah, guna memperoleh data yang akurat terkait keberhasilan lulusan dalam dunia kerja, wirausaha, maupun dalam melanjutkan pendidikan ke jenjang yang lebih tinggi.
+    </p>
+
+    <p class="highlight">
+      Melalui Tracer Study, SMK Mitra Industri MM2100 dapat mengumpulkan informasi mengenai:
+    </p>
+
+    <ul>
+      <li>Status pekerjaan alumni (bekerja, wirausaha, atau melanjutkan pendidikan)</li>
+      <li>Kesesuaian kompetensi yang diperoleh selama di sekolah dengan pekerjaan saat ini</li>
+      <li>Masukan dari alumni untuk meningkatkan mutu pendidikan di sekolah</li>
+      <li>Tantangan serta peluang yang dihadapi alumni di dunia kerja</li>
+    </ul>
+
+    <p>
+      Hasil dari Tracer Study ini akan menjadi bahan evaluasi dan acuan bagi sekolah dalam menyusun kurikulum yang lebih relevan, meningkatkan program pelatihan, serta memperkuat kerja sama dengan dunia industri.
+    </p>
+
+    <p>
+      SMK Mitra Industri MM2100 mengajak seluruh alumni untuk berpartisipasi aktif dalam program ini dengan mengisi kuesioner yang telah disediakan. Dengan dukungan dan partisipasi aktif dari para alumni, Tracer Study diharapkan dapat memberikan gambaran nyata mengenai dampak pendidikan di SMK Mitra Industri dalam membentuk masa depan lulusan yang lebih cerah.
+    </p>
+
+    <div class="closing">
+      SMK MITRA INDUSTRI MM2100, PASTI BISA!
+    </div>
+  </div>
+
+  <div class="result-title">HASIL TRACER STUDY</div>
+  <!--Hasil Tracer Study-->
+  <div class="cards">
+    <div class="card">
+      <img src="aseet/image/HASILTS.png" alt="placeholder">
+      <div class="card-body">
+        <h3>ALUMNI ANGKATAN 1</h3>
+        <a href="#" class="btn-detail">Lihat Detail</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="aseet/image/HASILTS.png" alt="placeholder">
+      <div class="card-body">
+        <h3>ALUMNI ANGKATAN 2</h3>
+        <a href="#" class="btn-detail">Lihat Detail</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="aseet/image/HASILTS.png" alt="placeholder">
+      <div class="card-body">
+        <h3>ALUMNI ANGKATAN 3</h3>
+        <a href="#" class="btn-detail">Lihat Detail</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleMenu(){
+    const menu = document.querySelector(".menu");
+   const burger = document.querySelector(".burger");
+
+    menu.classList.toggle("active");
+    burger.classList.toggle("active");
+  }
+</script>
+<!-- ================= FOOTER ================= -->
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-con">
+      <h3>Sosial Media</h3>
+      <ul>
+        <li><a href="https://www.youtube.com/channel/UCXyS8encGuXjGfzZdpOHPYw" target="_blank"><i class="fab fa-youtube"></i> SMK Mitra Industri (Official)</a></li>
+        <li><a href="https://www.instagram.com/mitra_industri/?hl=id" target="_blank"><i class="fab fa-instagram"></i> Mitra Industi (kab. Bekasi)</a></li>
+        <li><a href="https://www.instagram.com/mitra_industri_02/" target="_blank"><i class="fab fa-instagram"></i> Mitra Industri 02 (Kab. Pati)</a></li>
+        <li><a href="https://www.facebook.com/SmkMitraIndustriMM2100/" target="_blank"><i class="fab fa-facebook"></i> SMK Mitra Industri</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Laman</h3>
+      <ul>
+        <li><a href="https://smkind-mm2100.sch.id/"><i class="fas fa-house"></i> Home</a></li>
+        <li><a href="https://smkind-mm2100.sch.id/Profile/"><i class="fas fa-user"></i> Profil</a></li>
+        <li><a href="http://smkind-mm2100.sch.id/fasilitas/"><i class="fas fa-building"></i> Fasilitas</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Link</h3>
+      <ul>
+        <li><a href="https://smkmitraindustrimm2100.com/login/"><i class="fas fa-book"></i> Akademik</a></li>
+        <li><a href="https://smkind-mm2100.sch.id/ppdb/"><i class="fas fa-file-pen"></i> PPDB</a></li>
+        <li><a href="https://bkk.smkmitraindustrimm2100.com/"><i class="fas fa-magnifying-glass"></i> BKK</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3>Kontak</h3>
+      <ul>
+        <li><a href="tel:02189983961"><i class="fas fa-phone"></i> (021) 8998-3961</a></li>
+        <li><a href="mailto:smkmitraindustrimm2100@smkind-mm2100.sch.id"><i class="fas fa-envelope"></i> smkmitraindustrimm2100@smkind-mm2100.sch.id</a></li>
+        <li><a href="https://maps.app.goo.gl/76LsVpEwihkAi9p88" target=""><i class="fas fa-location-dot"></i> Kawasan Industri MM2100 Jl. Kalimantan Blok DD 1-1, Danau Indah, Kec. Cikarang Barat, Kabupaten Bekasi, Jawa Barat 17530</a></li>
+      </ul>
+    </div>
+
+  </div>
+  <div class="footer-bottom">
+    <a href="https://polmind.ac.id/">© 2025 Politeknik Mitra Industri - Team NT</a>
+  </div>
+</footer>
+
+<style>
+/* ===== FOOTER STYLE ===== */
+.footer{
+  background: linear-gradient(135deg, #021f5f, #042b7a);
+  color: #fff;
+  padding: 60px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container{
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  text-align: left;
+}
+
+.footer h3{
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.footer ul{
+  list-style: none;
+  padding: 0;
+}
+
+.footer ul li{
+  margin-bottom: 12px;
+}
+
+.footer a{
+  color: #ffffff;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.footer-bottom{
+  grid-column: 1 / -1;  /* MEMAKSA SPAN 4 KOLOM */
+  text-align:center;
+  margin-top:40px;
+  padding-top:15px;
+  border-top:1px solid rgba(255,255,255,0.2);
+  font-size:13px;
+}
+
+/* ===== ANIMASI HOVER MODERN ===== */
+.footer a::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #00b4ff;
+  transition: 0.3s ease;
+}
+
+.footer a:hover{
+  color: #00c3ff;
+  transform: translateX(6px);
+}
+
+.footer a:hover::after{
+  width: 100%;
+}
+
+/* Animasi muncul */
+.footer-col{
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Biar isi sejajar dengan judul */
+.footer ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer ul li{
+  margin: 10px 0;
+}
+
+/* Biar ikon & teks sejajar rapi */
+.footer ul li a{
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: fit-content;
+}
+
+.footer a{
+  position: relative;
+  display: inline-flex;
+  width: fit-content;
+}
+
+.footer-col{
+  padding-left: 0;
+}
+
+.footer-col h3{
+  margin-left: 0;
+}
+
+
+.footer-bottom{
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 768px){
+  .footer-container{
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+</style>
+</body>
+</html>
